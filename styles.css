@@ -1,0 +1,189 @@
+/* styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #1e3c72, #2a5298);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    animation: zoomIn 1s ease;
+}
+
+.firework-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 80px #ff00ff;
+    animation: neonGlow 2s infinite alternate, fireEffect 1.5s infinite alternate;
+    position: relative;
+    display: inline-block;
+}
+
+
+.firework-info {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.firework-image {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+    border: 3px solid #d72638;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    animation: float 2s infinite ease-in-out;
+}
+
+.firework-details {
+    text-align: left;
+    color: #333;
+}
+
+.description {
+    margin: 0 0 10px;
+    line-height: 1.5;
+}
+
+.price {
+    font-size: 1.2em;
+    color: #d72638;
+    font-weight: bold;
+}
+
+/* Заголовок перед видео */
+.gallery-heading {
+    font-size: 1.5em;
+    color: #fff;
+    margin-bottom: 10px;
+    text-align: center;
+    text-shadow: 0 0 5px #ff00ff, 0 0 10px #00ffff;
+}
+
+/* Контейнер для видео */
+.product-youtube {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-youtube:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.5);
+}
+
+/* Видео */
+.product-youtube iframe {
+    width: 100%;
+    max-width: 600px;
+    height: 315px;
+    border: none;
+    border-radius: 10px;
+}
+
+
+.snowflakes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.snowflake {
+    position: absolute;
+    top: -10px;
+    color: white;
+    font-size: 1.5em;
+    animation: fall 10s linear infinite;
+}
+
+.snowflake:nth-child(odd) {
+    animation-duration: 12s;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-100px); left: random(0%, 100%); opacity: 1; }
+    100% { transform: translateY(100vh); left: random(0%, 100%); opacity: 0.5; }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { text-shadow: 0 2px 5px rgba(255, 255, 255, 0.5); }
+    50% { text-shadow: 0 4px 10px rgba(255, 255, 255, 0.8); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes neonGlow {
+    0% {
+        text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 80px #ff00ff;
+        color: #ff00ff;
+    }
+    50% {
+        text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+        color: #00ffff;
+    }
+    100% {
+        text-shadow: 0 0 5px #ffff00, 0 0 10px #ffff00, 0 0 20px #ffff00, 0 0 40px #ffff00, 0 0 80px #ffff00;
+        color: #ffff00;
+    }
+}
+
+/* Эффект "огня" для эмодзи */
+@keyframes fireEffect {
+    0% {
+        transform: scale(1);
+        text-shadow: 0 0 10px #ff4500, 0 0 20px #ff4500, 0 0 30px #ff6347, 0 0 40px #ff8c00;
+    }
+    50% {
+        transform: scale(1.2);
+        text-shadow: 0 0 20px #ff4500, 0 0 30px #ff6347, 0 0 40px #ff8c00, 0 0 50px #ffd700;
+    }
+    100% {
+        transform: scale(1);
+        text-shadow: 0 0 10px #ff4500, 0 0 20px #ff6347, 0 0 30px #ff8c00, 0 0 40px #ffd700;
+    }
+}
+
+/* Чтобы эмодзи "горело" */
+.firework-title span {
+    display: inline-block;
+    animation: fireEffect 1.5s infinite;
+}
