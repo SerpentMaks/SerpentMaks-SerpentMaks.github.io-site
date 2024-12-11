@@ -165,3 +165,52 @@ section {
 .firework .details {
     padding-left: 20px;
 }
+
+/* Мобильная версия */
+@media (max-width: 768px) {
+    header {
+        font-size: 1.8em;
+        padding: 15px;
+    }
+
+    section {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .products-section h2 {
+        font-size: 1.8em;
+    }
+
+    .firework {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    .firework img {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 15px;
+        border-radius: 10px;
+    }
+
+    .details {
+        align-items: flex-start;
+        padding-left: 0;
+    }
+
+    .name {
+        font-size: 1.2em;
+    }
+
+    .characteristics,
+    .price {
+        font-size: 1em;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
