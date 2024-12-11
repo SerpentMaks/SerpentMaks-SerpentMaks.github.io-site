@@ -1,189 +1,167 @@
-/* styles.css */
+/* Общие стили */
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to bottom, #1e3c72, #2a5298);
-    color: #fff;
+    font-family: Arial, sans-serif;
+    background: url('https://example.com/snow_background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    overflow: hidden;
-    position: relative;
+    overflow-x: hidden;
 }
 
-.container {
+header {
+    background-color: rgba(255, 0, 0, 0.8);
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-size: 2.5em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 5px #fff, 0 0 10px #ff0000, 0 0 15px #ff0000; }
+    100% { text-shadow: 0 0 20px #fff, 0 0 30px #ff0000, 0 0 40px #ff0000; }
+}
+
+section {
+    margin: 20px;
+    padding: 20px;
     background: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-    max-width: 600px;
-    width: 100%;
-    text-align: center;
-    animation: zoomIn 1s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
 }
 
-.firework-title {
-    font-size: 2em;
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.products-section h2 {
+    color: #C00;
+    text-shadow: 1px 1px 2px #000;
+    font-size: 2.2em;
     margin-bottom: 20px;
-    color: #fff;
-    text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 80px #ff00ff;
-    animation: neonGlow 2s infinite alternate, fireEffect 1.5s infinite alternate;
-    position: relative;
-    display: inline-block;
 }
 
-
-.firework-info {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    justify-content: center;
-}
-
-.firework-image {
-    width: 150px;
-    height: auto;
-    border-radius: 8px;
-    border: 3px solid #d72638;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-    animation: float 2s infinite ease-in-out;
-}
-
-.firework-details {
-    text-align: left;
-    color: #333;
-}
-
-.description {
-    margin: 0 0 10px;
-    line-height: 1.5;
-}
-
-.price {
-    font-size: 1.2em;
-    color: #d72638;
-    font-weight: bold;
-}
-
-/* Заголовок перед видео */
-.gallery-heading {
-    font-size: 1.5em;
-    color: #fff;
-    margin-bottom: 10px;
-    text-align: center;
-    text-shadow: 0 0 5px #ff00ff, 0 0 10px #00ffff;
-}
-
-/* Контейнер для видео */
-.product-youtube {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.product-youtube:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.5);
-}
-
-/* Видео */
-.product-youtube iframe {
-    width: 100%;
-    max-width: 600px;
-    height: 315px;
-    border: none;
-    border-radius: 10px;
-}
-
-
+/* Оформление снежинок */
 .snowflakes {
-    position: absolute;
+    pointer-events: none;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
-    pointer-events: none;
+    z-index: 9999;
 }
 
 .snowflake {
     position: absolute;
-    top: -10px;
-    color: white;
+    top: -10%;
+    color: #FFF;
     font-size: 1.5em;
-    animation: fall 10s linear infinite;
+    opacity: 0.8;
+    animation: snowflakes-fall 10s linear infinite;
 }
 
-.snowflake:nth-child(odd) {
-    animation-duration: 12s;
+@keyframes snowflakes-fall {
+    to {
+        transform: translateY(100vh);
+    }
 }
 
-@keyframes fall {
-    0% { transform: translateY(-100px); left: random(0%, 100%); opacity: 1; }
-    100% { transform: translateY(100vh); left: random(0%, 100%); opacity: 0.5; }
+/* Оформление элементов фейерверков */
+.firework {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    animation: slideIn 0.8s ease-in-out;
 }
 
-@keyframes zoomIn {
+@keyframes slideIn {
     from {
-        transform: scale(0.8);
+        transform: translateX(-50%);
         opacity: 0;
     }
     to {
-        transform: scale(1);
+        transform: translateX(0);
         opacity: 1;
     }
 }
 
-@keyframes pulse {
-    0%, 100% { text-shadow: 0 2px 5px rgba(255, 255, 255, 0.5); }
-    50% { text-shadow: 0 4px 10px rgba(255, 255, 255, 0.8); }
+.firework:hover {
+    transform: scale(1.05);
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+/* Стиль для изображения товара */
+.firework img {
+    width: 150px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 5px;
 }
 
-@keyframes neonGlow {
-    0% {
-        text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 80px #ff00ff;
-        color: #ff00ff;
-    }
-    50% {
-        text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
-        color: #00ffff;
-    }
-    100% {
-        text-shadow: 0 0 5px #ffff00, 0 0 10px #ffff00, 0 0 20px #ffff00, 0 0 40px #ffff00, 0 0 80px #ffff00;
-        color: #ffff00;
-    }
+/* Оформление подробностей */
+.details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-/* Эффект "огня" для эмодзи */
-@keyframes fireEffect {
-    0% {
-        transform: scale(1);
-        text-shadow: 0 0 10px #ff4500, 0 0 20px #ff4500, 0 0 30px #ff6347, 0 0 40px #ff8c00;
-    }
-    50% {
-        transform: scale(1.2);
-        text-shadow: 0 0 20px #ff4500, 0 0 30px #ff6347, 0 0 40px #ff8c00, 0 0 50px #ffd700;
-    }
-    100% {
-        transform: scale(1);
-        text-shadow: 0 0 10px #ff4500, 0 0 20px #ff6347, 0 0 30px #ff8c00, 0 0 40px #ffd700;
-    }
+.name {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #C00;
+    animation: textGlow 1.5s infinite alternate;
 }
 
-/* Чтобы эмодзи "горело" */
-.firework-title span {
+@keyframes textGlow {
+    0% { text-shadow: 0 0 5px #fff, 0 0 10px #ff0000, 0 0 15px #ff0000; }
+    100% { text-shadow: 0 0 20px #fff, 0 0 30px #ff0000, 0 0 40px #ff0000; }
+}
+
+.characteristics,
+.price {
+    font-size: 1.1em;
+}
+
+.price {
+    font-weight: bold;
+    color: #D00;
+}
+
+/* Стиль для кнопок */
+.btn {
     display: inline-block;
-    animation: fireEffect 1.5s infinite;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #ff0000;
+    color: white;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #cc0000;
+    transform: scale(1.1);
+}
+
+/* Увеличение размера изображений и текста для более крупных товаров */
+.firework img {
+    width: 200px;
+}
+
+.firework .details {
+    padding-left: 20px;
 }

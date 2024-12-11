@@ -1,22 +1,9 @@
-// script.js
-
-// Пример динамической замены ссылки на YouTube видео
-const youtubeLink = 'https://youtu.be/5EepP6AhRig?si=1O6HK3al797skJnO'; // Вставьте свой ID видео
-const videoFrame = document.querySelector('.youtube-video');
-
-if (videoFrame) {
-    videoFrame.src = youtubeLink;
-}
-// script.js
-
-// Генерация случайной позиции для снежинок
-// script.js
-
+// Функция для создания снежинок
 function createSnowflakes() {
     const snowflakesContainer = document.querySelector('.snowflakes');
     
     // Указываем количество снежинок
-    const totalSnowflakes = 50;
+    const totalSnowflakes = 100;
 
     for (let i = 0; i < totalSnowflakes; i++) {
         const snowflake = document.createElement('div');
@@ -39,8 +26,12 @@ function createSnowflakes() {
         const delay = Math.random() * 5; // Задержка от 0 до 5 секунд
         snowflake.style.animationDelay = `${delay}s, 0s`;
 
+        // Добавление снежинки на страницу
         snowflakesContainer.appendChild(snowflake);
     }
 }
 
-createSnowflakes();
+// Запуск генерации снежинок при загрузке страницы
+window.onload = function() {
+    createSnowflakes();
+};
