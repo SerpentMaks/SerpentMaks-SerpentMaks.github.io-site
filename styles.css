@@ -170,28 +170,29 @@ section {
 @media (max-width: 768px) {
     header {
         font-size: 1.8em;
-        padding: 15px;
+        padding: 10px;
     }
 
     section {
         margin: 10px;
-        padding: 15px;
+        padding: 10px;
     }
 
     .products-section h2 {
-        font-size: 1.8em;
+        font-size: 1.6em;
     }
 
     .firework {
         flex-direction: column;
         align-items: flex-start;
-        padding: 15px;
+        padding: 10px;
+        margin-bottom: 15px;
     }
 
     .firework img {
-        width: 100%;
-        margin-right: 0;
-        margin-bottom: 15px;
+        width: 90%;
+        max-width: 250px;
+        margin: 0 auto 10px;
         border-radius: 10px;
     }
 
@@ -201,16 +202,18 @@ section {
     }
 
     .name {
-        font-size: 1.2em;
+        font-size: 1.1em;
     }
 
     .characteristics,
     .price {
-        font-size: 1em;
+        font-size: 0.9em;
     }
 
     .btn {
         width: 100%;
         text-align: center;
+        font-size: 0.9em;
+        padding: 8px 10px;
     }
 }
